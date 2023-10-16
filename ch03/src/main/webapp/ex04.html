@@ -49,7 +49,26 @@ body {
 
 .box8 {
 	border: 4px solid;
-
+	
+	/*
+	4(방향) * 3(속성[두께,스타일, 색상]) = 12가지
+	*/
+	border-top-color: blue;
+	border-top-style: dotted;
+	border-top-width: 1px;
+	
+	/*
+	3가지 속성별 축약형 (top, right, bottom, left)
+	*/
+	border-color: red blue black sienna; /*t r b l*/
+	border-width: 1px 2px 3px 4px; /*t r b l*/
+	border-width: 1px 2px 3px;  /*t rl b*/
+	border-width: 1px 2px; /*tb rl*/
+	border-width: 1px; /*trbl*/
+	
+	border: 1px solid cornflowerblue;
+	
+	
 }
 .box9 {
 	border: 4px none;
