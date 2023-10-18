@@ -1,17 +1,43 @@
 /**
  * 변수와 자료형
  * 
- * 기본타입
+ * [기본타입]
  *  - undefined
  *  - number
  *  - string
  *  - boolean
  *  
- * 객체
+ * [객체]
  *  - object
+ *      1. new 생성자() 
+ *      2. 리터럴 
+ *          {}. []. //
+ *      3. null이 object임.
  *  - function
+ *      1. new Function()
+ *      2. 리터럴
+ *          var f = function() {...}
+ *      3. function() {...}
  *  
  */
+
+/*
+ * 자바스크립트 객체를 분류하는 또 다른 방법 
+ * 1. 내장 객체
+ *      - javascript engine 내부에 미리 정의된 객체
+ *       생성자 함수 : Number, Boolean, String, Date, ...
+ *       일반 함수 : parseInt, setTimeout, setInterval, ...
+ *          
+ * 2. 호스트 객체
+ *      javascript engine이 embed되어 있는 호스트 환경에 있는 객체
+ *      Browser 호스트 : screen, location, navigator, document(DOM), XmlHttpRequest
+ *      Node 호스트 : http, os, fs, path, process, server, ...
+ * 
+ * 3. 사용자 객체
+ *      javascript engine이 실행되면서 생성하는 객체
+ * */
+
+
 console.log("=== 기본타입 (undefined, number, string, boolean) ====")
 //myVariable //reference error 
 var u = undefined; // var u; 랑 동일, Java script는 변수 정의와 선언을 구분한다.
