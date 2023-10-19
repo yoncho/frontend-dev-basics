@@ -8,7 +8,6 @@ ul, ol, dl { list-style-type: none;}
 }
 .tab-box ul {
 	height: 24px;
-	background-color: #ddd;
 }
 .tab-box li{
 	float: left;
