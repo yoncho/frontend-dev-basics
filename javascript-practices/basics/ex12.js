@@ -29,8 +29,9 @@ Array.prototype.insert = function(index, value){
         // callback 함수 블록 안의 this를 setting할 수 있음. (외부 this를 callback 내부 this로 변경 가능)
         var f = function(e){
             this.splice(index++, 0, e);
-        }.bind(this);
+        }; //.bind(this); 해도 됨.
         
+        f = f.bind(this);
         value.forEach(f);
 
     }else{
