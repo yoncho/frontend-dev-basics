@@ -12,11 +12,27 @@ Array.prototype.insert = function(index, value){
         //     this.splice(index + i, 0, value[i]);
         // }
         
-        console.log(this);
-        value.forEach(function(e){
-            console.log(this);
-            // this.splice(index++, 0, e);
-        });
+        // 오류!! 
+        // callback 함수 안의 this는 구문 상의 this와 일치하지 않는다..
+        // value.forEach(function(e){
+        //     // this.splice(index++, 0, e);
+        // });
+
+        // 해결방법1 : closure 사용
+        // var _this = this;
+        // value.forEach(function(e){
+        //     _this.splice(index++, 0, e);
+        // });
+        
+        // 해결방법2 : this를 함수에 bind 해주기
+        // Function.prototype.bind() 를 사용
+        // callback 함수 블록 안의 this를 setting할 수 있음. (외부 this를 callback 내부 this로 변경 가능)
+        var f = function(e){
+            this.splice(index++, 0, e);
+        }.bind(this);
+        
+        value.forEach(f);
+
     }else{
         this.splice(index, 0, value);
     }
