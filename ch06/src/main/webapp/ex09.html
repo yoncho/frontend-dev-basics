@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+window.onload = function(){
+	setTimeout(function(){
+		var imgElement = document.createElement("img");
+		
+		// getAttribute/ setAttribute
+		// 표준 속성: 사용 가능, 이름으로 가능하다.
+		// 비표준 속성: 사용 가능, 이름으로 불가능하다. 꼭 get/setAttribute사용
+		imgElement.setAttribute("src","/ch06/cat.jpg");
+		imgElement.setAttribute("style","width:100px");
+		imgElement.setAttribute("title","hello :)");
+		
+		// imgElement.no = 10; 안됨 error
+		// 비표준 속성을 사용할 때는 'data-' prefix를 달아준다.
+		// imgElement.setAttribute("data-no", 10);
+		imgElement.setAttribute("no", 10);
+		
+		// 비표준 속성은 이름으로 접근할 수 없다.
+		console.log(imgElement.no, imgElement.getAttribute('no'), imgElement.title);
+		
+		
+		document.body.appendChild(imgElement);
+	},2000);
+};
+</script>
+</head>
+<body>
+	<h1>DOM(Document Object Model)</h1>
+	<h2>3. HTML Element 속성 조작하기2</h2>
+</body>
+</html>
