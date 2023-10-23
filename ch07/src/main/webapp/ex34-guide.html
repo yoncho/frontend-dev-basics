@@ -21,17 +21,46 @@ var changeImage = function(){
 	//랜덤 변수
 	var index = Math.floor( Math.random() * (images.length-1)  ) + 1;
 	var info = images[index].split(":");
-	console.log(info[0], info[1]);
-	
+	var src = '/ch07/images/' + info[1];
+	var alt = info[0];
+	$('div > img').attr("src", src);
+	$('div > img').attr("alt", alt);
+	console.log(alt, src);
 }
 
 $(function(){
-
-	$("button").click(function(){
+	var isSlideShow = false;
+	$('#btn-change').click(function(){
 		changeImage();
+	});
+	$('#btn-slideshow').click(function(){
+		isSlideShow = !isSlideShow;
+		$(this).text(isSlideShow ? '슬라이드쇼 중지':'슬라이드쇼 시작');
+		var interval = setInterval(function(){
+			changeImage();
+			if(!isSlideShow) {
+				clearInterval(interval);
+				return;
+			}
+		}, 1000);
 	});
 	
 });
+
+/* jquery plug in*/
+$.fn.hello = function(){
+	console.log("hello world", this.length);
+	return this;	
+}
+$.fn.flash = function(){
+	var _this = this;
+	var isBlink = false;
+	setInterval(function(){
+		_this.css('background-color', isBlink ? 'red':'blue');
+		isBlink = !isBlink;
+	}, 500);
+	return this;	
+}
 </script>
 </head>
 <body>
