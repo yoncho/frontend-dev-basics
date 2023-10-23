@@ -23,11 +23,23 @@ var changeImage = function(){
 	var info = images[index].split(":");
 	var src = '/ch07/images/' + info[1];
 	var alt = info[0];
-	$('div > img').attr("src", src);
-	$('div > img').attr("alt", alt);
+	$('#image').attr("src", src);
+	$('#image').attr("alt", alt);
 	console.log(alt, src);
 }
 
+var slideShow;
+	
+var startSlideShow =function(){
+	slideShow = setInterval(function(){
+		changeImage();
+	}, 1000);
+};
+	
+var stopSlideShow = function(){
+	clearInterval(slideShow);
+}
+	
 $(function(){
 	var isSlideShow = false;
 	$('#btn-change').click(function(){
@@ -36,31 +48,14 @@ $(function(){
 	$('#btn-slideshow').click(function(){
 		isSlideShow = !isSlideShow;
 		$(this).text(isSlideShow ? '슬라이드쇼 중지':'슬라이드쇼 시작');
-		var interval = setInterval(function(){
-			changeImage();
-			if(!isSlideShow) {
-				clearInterval(interval);
-				return;
-			}
-		}, 1000);
+		if (isSlideShow){
+			startSlideShow();
+		}else{
+			stopSlideShow();
+		}
 	});
-	
 });
 
-/* jquery plug in*/
-$.fn.hello = function(){
-	console.log("hello world", this.length);
-	return this;	
-}
-$.fn.flash = function(){
-	var _this = this;
-	var isBlink = false;
-	setInterval(function(){
-		_this.css('background-color', isBlink ? 'red':'blue');
-		isBlink = !isBlink;
-	}, 500);
-	return this;	
-}
 </script>
 </head>
 <body>
@@ -70,7 +65,7 @@ $.fn.flash = function(){
 			<button id="btn-slideshow">슬라이드쇼 시작</button>
 		</div>
 		<div>
-			<img src="/ch07/images/Desert.jpg" alt="사막"/>
+			<img id="image" src="/ch07/images/Desert.jpg" alt="사막"/>
 		</div>
 	</div>
 </body>
