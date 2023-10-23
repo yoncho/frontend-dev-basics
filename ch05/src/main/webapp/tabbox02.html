@@ -15,7 +15,7 @@ var tabBox = {
 	init: function(){
 		window.addEventListener('load', this._init);
 	},
-	onTabClicked: function(e){
+	onTabClicked: function(){
 		var liSelected = document.querySelectorAll('.tab-box li.selected');
 		liSelected.forEach(function(li){
 			li.className = "";

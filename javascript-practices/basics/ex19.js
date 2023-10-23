@@ -6,4 +6,8 @@
  * 
  */
 
-global.n = 10;
+global.n = '둘리';
+console.log(global.n);
+
+var e = 'dooly@naver.com';
+console.log(global.e, e);
