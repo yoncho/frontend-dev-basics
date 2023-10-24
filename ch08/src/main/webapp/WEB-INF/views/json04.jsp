@@ -17,14 +17,14 @@ $(function(){
 	};
 	/**/
 	$('button').click(function(){
-		console.log($.param(vo));
+		console.log(JSON.stringify(vo));
 		$.ajax({
-			url: '${pageContext.request.contextPath}/api/post01',
+			url: '${pageContext.request.contextPath}/api/post02',
 			async: true,
 			type: 'post',
 			dataType: 'json',
-			contentType: 'application/x-www-form-urlencoded',
-			data: $.param(vo),
+			contentType: 'application/json',
+			data: JSON.stringify(vo),
 			success: function(response){
 				console.log(response);
 				
@@ -47,7 +47,6 @@ $(function(){
 			}
 		});
 	});
-	
 });
 </script>
 </head>
