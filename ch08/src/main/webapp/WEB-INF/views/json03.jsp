@@ -40,7 +40,6 @@ $(function(){
 				htmls += ("<h5>" + vo.contents + "</h5>");
 				
 				$('#data').html(htmls);				
-				
 			},
 			error: function(xhr, status, error){
 				console.error(status, error);
