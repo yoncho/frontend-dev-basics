@@ -66,7 +66,7 @@ $(function(){
 			type: 'delete',
 			dataType: 'json',
 			contentType: 'application/x-www-form-urlencoded',
-			data: 'passworkd=12345',
+			data: 'password=12345',
 			success: function(response){
 				console.log(response);
 			}

@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import ch08.dto.JsonResult;
@@ -55,8 +56,10 @@ public class ApiRestController {
 	}
 	
 	@DeleteMapping("{no}")
-	public JsonResult delete(@RequestBody String password) {
-		
-		return JsonResult.success(null);
+	public JsonResult delete(
+			@PathVariable("no") Long no,
+			@RequestParam(value="password", required=true, defaultValue="") String password) {
+		System.out.println("password " + password);
+		return JsonResult.success(no);
 	}
 }
