@@ -8,36 +8,32 @@
 <title>mysite</title>
 <meta http-equiv="content-type" content="text/html; charset=utf-8">
 <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-<script type="text/javascript" src="/ch08/jquery/jquery-3.7.1.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath }/jquery/jquery-3.7.1.js"></script>
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 <script>
 $(function(){
 	$(window).scroll(function(){
-		//조건(스크롤바가 바닥에 도착)이 되면 fetch() 호출
 		var $window = $(this);
 		var $document = $(document);
 		
-		var wh = $window.height;
-		var dh = $document.height;
+		var wh = $window.height();
+		var dh = $document.height();
 		var st = $window.scrollTop();
-	
-		if(dh < wh + st + 10){
-			console.log('fetch!!!');
+		
+		if(dh < wh + st + 10) {
+			console.log("fetch!!!");
 		}
-	});
-	
-	//최초 리스트 가져오기
-	fetch();
+	})
 });
+
 </script>
 </head>
 <body>
 	<div id="container">
-		
 		<div id="content">
 			<div id="guestbook">
 				<h1>방명록</h1>
-				<form id="add-form" action="" method="post">
+				<form id="add-form" action="/ch08/gb" method="post">
 					<input type="text" id="input-name" placeholder="이름">
 					<input type="password" id="input-password" placeholder="비밀번호">
 					<textarea id="tx-content" placeholder="내용을 입력해 주세요."></textarea>
@@ -75,20 +71,50 @@ $(function(){
 						<a href='' data-no=''>삭제</a> 
 					</li>
 					<li data-no=''>
-						<strong>지나가다가</strong>
+						<strong>주인</strong>
 						<p>
-							별루입니다.<br>
-							비번:1234 -,.-
+							아작스 방명록 입니다.<br>
+							테스트~
+						</p>
+						<strong></strong>
+						<a href='' data-no=''>삭제</a> 
+					</li>
+					<li data-no=''>
+						<strong>주인</strong>
+						<p>
+							아작스 방명록 입니다.<br>
+							테스트~
 						</p>
 						<strong></strong>
 						<a href='' data-no=''>삭제</a> 
 					</li>
 					
 					<li data-no=''>
-						<strong>둘리</strong>
+						<strong>주인</strong>
 						<p>
-							안녕하세요<br>
-							홈페이지가 개 굿 입니다.
+							아작스 방명록 입니다.<br>
+							테스트~
+						</p>
+						<strong></strong>
+						<a href='' data-no=''>삭제</a> 
+					</li>
+					
+					
+					<li data-no=''>
+						<strong>주인</strong>
+						<p>
+							아작스 방명록 입니다.<br>
+							테스트~
+						</p>
+						<strong></strong>
+						<a href='' data-no=''>삭제</a> 
+					</li>
+					
+					<li data-no=''>
+						<strong>주인</strong>
+						<p>
+							아작스 방명록 입니다.<br>
+							테스트~
 						</p>
 						<strong></strong>
 						<a href='' data-no=''>삭제</a> 
@@ -102,36 +128,7 @@ $(function(){
 						</p>
 						<strong></strong>
 						<a href='' data-no=''>삭제</a> 
-					</li>
-					<li data-no=''>
-						<strong>지나가다가</strong>
-						<p>
-							별루입니다.<br>
-							비번:1234 -,.-
-						</p>
-						<strong></strong>
-						<a href='' data-no=''>삭제</a> 
-					</li>
-					
-					<li data-no=''>
-						<strong>둘리</strong>
-						<p>
-							안녕하세요<br>
-							홈페이지가 개 굿 입니다.
-						</p>
-						<strong></strong>
-						<a href='' data-no=''>삭제</a> 
-					</li>
-
-					<li data-no=''>
-						<strong>주인</strong>
-						<p>
-							아작스 방명록 입니다.<br>
-							테스트~
-						</p>
-						<strong></strong>
-						<a href='' data-no=''>삭제</a> 
-					</li>
+					</li>																														
 									
 				</ul>
 			</div>
@@ -148,7 +145,6 @@ $(function(){
   				<p></p>
 			</div>						
 		</div>
-		
 	</div>
 </body>
 </html>
