@@ -1,8 +1,3 @@
-/**
- * 
- * 
- */
-
 const myAsyncFn = function(param, callback){
     //비동기 코드.. 결과를 callback에 전달!
     // 1) 파일 시스템 접근(file,io)
