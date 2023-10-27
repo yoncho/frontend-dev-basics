@@ -13,7 +13,6 @@ numbers.forEach(function(n){
     process.stdout.write(`${n}:${power(n)}\t`);
 });
 
-
 //ex01
 console.log("\n-------------------------------------");
 numbers.forEach(function(n){
@@ -31,7 +30,6 @@ numbers.forEach(function(n){
     process.stdout.write(`${n}:${(x=>x*x)(n)}\t`);
 });
 
-
 //ex03
 console.log("\n-------------------------------------");
 numbers.forEach(n=>process.stdout.write(`${n}:${(x=>x*x)(n)}\t`));
@@ -44,4 +42,14 @@ console.log("\n-------------------------------------");
     }
 });
 
-//ex05 : 화살표 함수 한계 this...! binding
+//ex05 : - this를 어휘적으로 바인딩(Lexical Binding)
+console.log("\n-------------------------------------");
+const dooly = {
+    name:'dooly',
+    friends:['ddochi', 'micole', 'de'],
+    printFriends: function(){
+        this.friends.forEach(x=>console.log(`${this.name}'s friend ${x}`));
+    }
+};
+
+dooly.printFriends();
