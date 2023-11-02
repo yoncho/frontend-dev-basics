@@ -11,13 +11,12 @@ const myAsyncFn = function(param){
     });
 };
 
-
 //usage I ~ then ~ catch
 myAsyncFn('data')
     .then(function(result){
         console.log(result);
     })
-    .catch(function(err){
+    .catch(function(err){t
         console.error(err);
     });
 
